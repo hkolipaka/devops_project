@@ -1,13 +1,24 @@
 <div class="row">
-  <div class="col-6">
-    <h3>Quiz Application</h3>
-  </div>
-  <div class="col-6 text-right">
-    Select Quiz:
-    <select [(ngModel)]="quizName" (change)="loadQuiz(quizName)">
+  
+  <div class="flex-design">
+    <h3 class="head-design">Select Quiz:</h3>
+   <!-- <select [(ngModel)]="quizName" (change)="loadQuiz(quizName)">
       <option *ngFor="let quiz of quizes" [value]="quiz.id">{{quiz.name}}</option>
     </select>
-  </div>
+  -->
+    <form (change)="loadQuiz(quizName)" class="d-flex justify-content-center">
+      
+      
+      <input type="radio" [(ngModel)]="quizName" class="btn-check"  id="quizes[0].name" name="quizes[0].name" [value]="quizes[0].id">
+      <label class="rad-btn btn btn-primary" for="quizes[0].name">{{quizes[0].name}}</label>
+      <input type="radio" [(ngModel)]="quizName" class="btn-check" id="quizes[1].name" name="quizes[1].name" [value]="quizes[1].id">
+      <label class="rad-btn btn btn-primary" for="quizes[1].name">{{quizes[1].name}}</label>
+      <input type="radio" [(ngModel)]="quizName" class="btn-check"  id="quizes[2].name" name="quizes[2].name" [value]="quizes[2].id">
+      <label class="rad-btn btn btn-primary" for="quizes[2].name">{{quizes[2].name}}</label>
+      <input type="radio" [(ngModel)]="quizName" class="btn-check" id="quizes[3].name" name="quizes[3].name" [value]="quizes[3].id">
+      <label class="rad-btn btn btn-primary" for="quizes[3].name">{{quizes[3].name}}</label>
+      </form>
+    </div>
 </div>
 <div id="quiz">
   <h2 class="text-center font-weight-normal">{{quiz.name}}</h2>
@@ -46,7 +57,7 @@
     </div>
   </div>
   <div class="result" *ngIf="mode=='result'">
-    <h2>Quiz Result</h2>
+    <h2>Quiz Result: {{ quizScore }}</h2>
     <div *ngFor="let question of quiz.questions; let index = index">
       <div class="result-question">
         <h5>{{index + 1}}. {{question.name}}</h5>
@@ -61,7 +72,7 @@
     <h4 class="alert alert-info text-center">You may close this window now.</h4>
   </div>
   <hr />
-  <div *ngIf="mode!='result'">
+  <div class="flex-display" *ngIf="mode!='result'">
     <button class="btn btn-warning" (click)="mode = 'quiz'">Quiz</button>
     <button class="btn btn-info" (click)="mode = 'review'">Review</button>
     <button class="btn btn-primary" (click)="onSubmit();">Submit Quiz</button>

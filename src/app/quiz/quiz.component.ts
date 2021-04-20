@@ -15,6 +15,7 @@ export class QuizComponent implements OnInit {
   quiz: Quiz = new Quiz(null);
   mode = 'quiz';
   quizName: string;
+  quizScore = 0;
   config: QuizConfig = {
     'allowBack': true,
     'allowReview': true,
@@ -105,15 +106,34 @@ export class QuizComponent implements OnInit {
   };
 
   isCorrect(question: Question) {
-    return question.options.every(x => x.selected === x.isAnswer) ? 'correct' : 'wrong';
-  };
 
+   if(question.options.every(x => x.selected === x.isAnswer)){
+     return "correct";
+   }else{
+     return "wrong";
+   }
+   
+  };
+  
   onSubmit() {
     let answers = [];
+    
     this.quiz.questions.forEach(x => answers.push({ 'quizId': this.quiz.id, 'questionId': x.id, 'answered': x.answered }));
+    //console.log("console", answers);
+    let sol = [];
+   
+    
+    let {questions} = this.quiz
+    for( let i = 0; i < questions.length;i++){
+      let temp = questions[i].options.filter(x => x.selected == true && x.isAnswer == true)
+      if(temp.length > 0){
+        sol.push(temp[0]);
+      }
+    }
+    this.quizScore = sol.length;
 
-    // Post your data to the server here. answers contains the questionId and the users' answer.
-    console.log(this.quiz.questions);
+    
+    
     this.mode = 'result';
   }
 }

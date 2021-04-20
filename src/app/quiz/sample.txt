@@ -1,0 +1,9 @@
+ <form (change)="loadQuiz(quizName)">
+      
+      
+      <input type="radio" [(ngModel)]="quizName" class="btn-check"  name="quizes[0].name" [value]="quizes[0].id">
+      <label class="btn btn-secondary" for="quizes[0].name">{{quizes[0].name}}</label>
+      <input type="radio" [(ngModel)]="quizName" class="btn-check" name="quizes[1].name" [value]="quizes[1].id">{{quizes[1].name}}
+      <input type="radio" [(ngModel)]="quizName" class="btn-check" name="quizes[2].name" [value]="quizes[2].id">{{quizes[2].name}}
+      <input type="radio" [(ngModel)]="quizName" class="btn-check" name="quizes[3].name" [value]="quizes[3].id">{{quizes[3].name}}
+  </form>

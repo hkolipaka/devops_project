@@ -1,0 +1,33 @@
+#slider .carousel-item {
+    height: 500px;
+  }
+  
+  .carousel-caption {
+    font-size: 18px;
+  }
+  
+  .carousel-item>img {
+    width: 100%
+  }
+  .w-100 {
+    width: 1000px;
+    height: 75vh;
+    background-repeat: no-repeat;
+  }
+  a:hover{
+    background-color: grey;
+    font-style: italic;
+  }
+
+    #navpic{
+        padding-right: 10px
+    }
+    #carry{
+        padding-top: 2px;
+    }
+
+    #imgcard{
+        padding-top: 5px;
+        height: 300px;
+    }
+  

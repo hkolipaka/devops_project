@@ -1,0 +1,16 @@
+#slider .carousel-item {
+    height: 500px;
+  }
+  
+  .carousel-caption {
+    font-size: 18px;
+  }
+  
+  .carousel-item>img {
+    width: 100%
+  }
+  .w-100 {
+    width: 1000px;
+    height: 75vh;
+    background-repeat: no-repeat;
+  }
